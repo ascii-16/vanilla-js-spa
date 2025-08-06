@@ -53,7 +53,7 @@ export async function router() {
       App.innerHTML = html;
     } catch (e) {
       console.warn('404 page not found. Defaulting to default 404 template')
-      document.getElementById('app').innerHTML = `<h1>404</h1><p>Page not found</p>`;
+      App.innerHTML = `<h1>404</h1><p>Page not found</p>`;
     }
   }
 }
