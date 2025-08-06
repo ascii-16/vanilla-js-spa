@@ -24,7 +24,7 @@ export async function fetchHtml(path) {
 
 export function removeCSS(href = null, id = null) {
   if (!href && !id) {
-    console.error('Provide link or Id');
+    console.error('Provide href or Id');
     return;
   }
 
