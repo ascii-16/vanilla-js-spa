@@ -1,4 +1,5 @@
 import { routes } from './routes.js';
+import { App } from './constant.js'
 
 export function loadCSS(href, id = 'route-style') {
   const isExists = [...document.head.querySelectorAll('link')].some(link => link.href.endsWith(href));
@@ -13,6 +14,14 @@ export function loadCSS(href, id = 'route-style') {
   document.head.appendChild(link);
 }
 
+export async function fetchHtml(path) {
+  const res = await fetch(path);
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} for ${path}`);
+  }
+  return await res.text();
+}
+
 export function removeExistingRouteCSS() {
   const existingLink = document.getElementById('route-style');
   if (existingLink) existingLink.remove();
@@ -25,10 +34,9 @@ export async function router() {
   if (route) {
     try {
       const page = `pages/${hash}/${route.template}`;
-      const res = await fetch(page);
-      const html = await res.text();
+      const html = await fetchHtml(page);
       document.title = route.title;
-      document.getElementById('app').innerHTML = html;
+      App.innerHTML = html;
 
       removeExistingRouteCSS();
       if (route.css) {
@@ -36,10 +44,16 @@ export async function router() {
         loadCSS(css);
       }
     } catch (e) {
-      document.getElementById('app').innerHTML = `<h1>Error route ${hash}</h1>`;
+      App.innerHTML = `<h1>Error route ${hash}</h1>`;
       console.error(e);
     }
   } else {
-    document.getElementById('app').innerHTML = `<h1>404</h1><p>Page not found</p>`;
+    try {
+      const html = await fetchHtml('404.html');
+      App.innerHTML = html;
+    } catch (e) {
+      console.warn('404 page not found. Defaulting to default 404 template')
+      document.getElementById('app').innerHTML = `<h1>404</h1><p>Page not found</p>`;
+    }
   }
 }
