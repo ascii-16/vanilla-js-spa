@@ -42,7 +42,8 @@ export function removeCSS(href = null, id = null) {
       console.error(`Link not found for id: ${link}`);
       return;
     }
-    if (el) el.remove();
+
+    el.remove();
   }
 }
 
