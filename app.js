@@ -1,4 +1,4 @@
-import { router } from './lib.js';
+import { router } from './lib/router.js';
 
 function main() {
   window.addEventListener('hashchange', router);
