@@ -1,5 +1,5 @@
 import { routes } from './routes.js';
-import { App } from './constant.js'
+import { App } from './constant.js';
 
 export function loadCSS(href, id = 'route-style') {
   const isExists = [...document.head.querySelectorAll('link')].some(link => link.href.endsWith(href));
@@ -22,6 +22,30 @@ export async function fetchHtml(path) {
   return await res.text();
 }
 
+export function removeCSS(href = null, id = null) {
+  if (!href && !id) {
+    console.error('Provide link or Id');
+    return;
+  }
+
+  if (link) {
+    const link = [...document.head.querySelectorAll('link')].find(link => link.href.endsWith(href));
+    if (!link) {
+      console.error(`Link not found for link: ${link}`);
+      return;
+    }
+
+    link.remove();
+  } else if (id) {
+    const el = document.getElementById(id);
+    if (!el) {
+      console.error(`Link not found for el: ${link}`);
+      return;
+    }
+    if (el) el.remove();
+  }
+}
+
 export function removeExistingRouteCSS() {
   const existingLink = document.getElementById('route-style');
   if (existingLink) existingLink.remove();
@@ -37,8 +61,8 @@ export async function router() {
       const html = await fetchHtml(page);
       document.title = route.title;
       App.innerHTML = html;
-
       removeExistingRouteCSS();
+
       if (route.css) {
         const css = `pages/${hash}/${route.css}`;
         loadCSS(css);

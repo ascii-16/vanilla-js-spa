@@ -5,5 +5,4 @@ function main() {
   window.addEventListener('load', router);
 }
 
-
 main();
