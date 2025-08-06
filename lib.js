@@ -31,7 +31,7 @@ export function removeCSS(href = null, id = null) {
   if (link) {
     const link = [...document.head.querySelectorAll('link')].find(link => link.href.endsWith(href));
     if (!link) {
-      console.error(`Link not found for link: ${link}`);
+      console.error(`Link not found for href: ${link}`);
       return;
     }
 
@@ -39,7 +39,7 @@ export function removeCSS(href = null, id = null) {
   } else if (id) {
     const el = document.getElementById(id);
     if (!el) {
-      console.error(`Link not found for el: ${link}`);
+      console.error(`Link not found for id: ${link}`);
       return;
     }
     if (el) el.remove();
