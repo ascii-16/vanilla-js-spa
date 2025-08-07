@@ -25,26 +25,40 @@ Vanilla JS SPA is a lightweight, educational project that provides the foundatio
 ### Installation
 
 1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/ascii-16/vanilla-js-spa.git
-   cd vanilla-js-spa
-   ```
+    ```sh
+    git clone https://github.com/ascii-16/vanilla-js-spa.git
+    cd vanilla-js-spa
+    ```
 
-2. **Open `index.html` in your browser.**
-   - You can use a local server (recommended), e.g., with VS Code's Live Server, Python, or Node:
-     ```sh
-     # Python 3.x
-     python3 -m http.server
-     # or with Node.js
-     npx serve .
-     ```
-   - Then visit `http://localhost:8000` (or the port your server uses).
+2. **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+### Running the Server
+
+Start the development server using the npm script:
+
+```sh
+npm start
+```
+
+This will serve the project locally.
+
+**Alternatively, you can also use a simple local server (e.g., with VS Code's Live Server, Python, or Node):**
+```sh
+# Python 3.x
+python3 -m http.server
+
+# or with Node.js
+npx serve .
+```
 
 ---
 
 ### Usage
 
-- Click the navigation links or change the hash in the URL (e.g., `#home`, `#about`) to navigate.
+- Click the navigation links or change the URL path (e.g., `/home`, `/about`) to navigate.
 - The content of the `<div id="app"></div>` will update without a full page reload.
 - Add new pages by creating a folder in `pages/`, an HTML file, and a JS config.
 
