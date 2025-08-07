@@ -1,0 +1,12 @@
+<div class="listing-page">
+  <h1>{{title}}</h1>
+  <div class="card-grid">
+    {{#each items}}
+    <div class="glass-card">
+      <h2>{{this.title}}</h2>
+      <p>{{this.description}}</p>
+      <a href="{{this.link}}">View Details</a>
+    </div>
+    {{/each}}
+  </div>
+</div>

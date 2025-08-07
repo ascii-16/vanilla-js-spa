@@ -5,8 +5,13 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, '../')));
+app.use('/pages', express.static(path.join(__dirname, '../', 'pages')));
 
-app.get('/{*any}', (_req, res) => {
+app.get('/{*any}', (req, res, next) => {
+   if (req.path.endsWith('.js') || req.path.endsWith('.css') || req.path.endsWith('.map')) {
+    return next();
+  }
+
   res.sendFile(path.join(__dirname, '../', 'index.html'));
 });
 

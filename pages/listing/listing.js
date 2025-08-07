@@ -1,5 +1,6 @@
 export default {
   title: 'Listing page',
-  template: './listing.html',
-  css: './listing.css'
+  template: 'listing.hbs',
+  css: 'listing.css',
+  client: 'listing-client.js'
 }
