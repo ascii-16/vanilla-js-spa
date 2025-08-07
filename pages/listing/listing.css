@@ -102,3 +102,52 @@
   background: rgba(255, 255, 255, 0.1);
   color: #93c5fd;
 }
+
+.skeleton-text {
+  background: linear-gradient(90deg, #ffffff0a, #ffffff22, #ffffff0a);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 8px;
+}
+
+.title-placeholder {
+  width: 60%;
+  height: 32px;
+  margin-bottom: 20px;
+}
+
+.glass-card .title-placeholder {
+  width: 60%;
+  height: 24px;
+  margin-bottom: 12px;
+}
+
+.glass-card .desc-placeholder {
+  width: 90%;
+  height: 16px;
+  margin-bottom: 12px;
+}
+
+.glass-card .link-placeholder {
+  width: 50%;
+  height: 14px;
+  margin-top: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.skeleton .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  min-height: 150px;
+  width: 33.33%;
+}
