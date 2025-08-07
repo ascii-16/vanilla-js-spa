@@ -1,0 +1,27 @@
+{
+  "name": "vanilla-js-spa",
+  "version": "1.0.0",
+  "description": "A simple Single Page Application (SPA) template built using only vanilla JavaScript, HTML, and CSS—no frameworks or build tools required. This project demonstrates how to implement basic client-side routing and page rendering with minimal setup.",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ascii-16/vanilla-js-spa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ascii-16/vanilla-js-spa/issues"
+  },
+  "homepage": "https://github.com/ascii-16/vanilla-js-spa#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
