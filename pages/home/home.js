@@ -1,4 +1,5 @@
 export default {
   title: 'Home',
-  template: './home.html'
+  template: './home.html',
+  css: './home.css'
 }
